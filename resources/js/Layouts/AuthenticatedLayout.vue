@@ -12,7 +12,7 @@ const showingNavigationDropdown = ref(false);
 
 <template>
     <div>
-        <div class="min-h-screen bg-white"  >
+        <div class="dark:bg-gray-800"  >
             <nav class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -157,16 +157,23 @@ const showingNavigationDropdown = ref(false);
             </nav>
 
             <!-- Page Heading -->
-            <header class="bg-white dark:bg-gray-800 shadow" v-if="$slots.header">
+            <header class="bg-gray-100 shadow" v-if="$slots.header">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     <slot name="header" />
                 </div>
             </header>
+<!-- Page Content -->
+            <body class="bg-gray-50 text-gray-900">
+                <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <slot />
+                </main>
+            </body>
 
-            <!-- Page Content -->
-            <main>
-                <slot />
-            </main>
+            <footer class="bg-gray-100 mt-10 py-4">
+                <div class="max-w-7xl mx-auto text-center text-gray-600">
+                    <slot name="footer">© 2024 Your Company. All rights reserved.</slot>
+                </div>
+            </footer>
         </div>
     </div>
 </template>
